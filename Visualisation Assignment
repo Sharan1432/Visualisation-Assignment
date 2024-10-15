@@ -1,0 +1,490 @@
+1. Create a scatter plot using Matplotlib to visualize the relationship between two arrays, x and y for the given
+data.  
+x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
+y = [2, 4, 5, 7, 6, 8, 9, 10, 12, 13]
+
+import numpy as np
+
+array = np.random.randint(1, 101, size=(3, 3))
+
+interchanged_array = array.T
+
+print("Original array:\n", array)
+print("Interchanged array:\n", interchanged_array)
+
+2. Generate a line plot to visualize the trend of values for the given data.
+data = np.array([3, 7, 9, 15, 22, 29, 35])
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+data = np.array([3, 7, 9, 15, 22, 29, 35])
+
+plt.plot(data, marker='o')
+
+plt.title("Trend of Values")
+plt.xlabel("Index")
+plt.ylabel("Value")
+
+plt.show()
+
+3. Display a bar chart to represent the frequency of each item in the given array categories.
+categories = ['A', 'B', 'C', 'D', 'E'] 
+values = [25, 40, 30, 35, 20]
+
+import matplotlib.pyplot as plt
+
+categories = ['A', 'B', 'C', 'D', 'E']
+values = [25, 40, 30, 35, 20]
+
+plt.bar(categories, values)
+
+plt.title("Frequency of Each Category")
+plt.xlabel("Category")
+plt.ylabel("Frequency")
+
+plt.show()
+
+4. Create a histogram to visualize the distribution of values in the array data
+data = np.random.normal(0, 1, 1000)
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+data = np.random.normal(0, 1, 1000)
+
+plt.hist(data, bins=30, edgecolor='k')
+
+plt.title("Distribution of Values")
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+
+plt.show()
+
+5. Show a pie chart to represent the percentage distribution of different sections in the array `sections`.
+sections = ['Section A', 'Section B', 'Section C', 'Section D'] 
+sizes = [25, 30, 15, 30]
+
+import matplotlib.pyplot as plt
+
+sections = ['Section A', 'Section B', 'Section C', 'Section D']
+sizes = [25, 30, 15, 30]
+
+plt.pie(sizes, labels=sections, autopct='%1.1f%%', startangle=140)
+
+plt.title("Percentage Distribution of Sections")
+
+plt.show()
+
+SEABORN ASSIGNMENT:
+
+1. Create a scatter plot to visualize the relationship between two variables, by generating a synthetic
+dataset.
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+np.random.seed(0)  # For reproducibility
+x = np.random.rand(100)  # 100 random values between 0 and 1
+y = 2 * x + np.random.normal(0, 0.1, 100)  # Linear relationship with some noise
+
+plt.scatter(x, y)
+
+plt.title("Scatter Plot of Synthetic Dataset")
+plt.xlabel("x")
+plt.ylabel("y")
+
+plt.show()
+
+2. Generate a dataset of random numbers. Visualize the distribution of a numerical variable.
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+data = np.random.normal(loc=0, scale=1, size=1000)  # mean = 0, std dev = 1, 1000 data points
+
+plt.hist(data, bins=30, edgecolor='k')
+
+plt.title("Distribution of Numerical Variable")
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+
+plt.show()
+
+3. Create a dataset representing categories and their corresponding values. Compare different categories
+based on numerical values
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+categories = ['Category A', 'Category B', 'Category C', 'Category D']
+values = [23, 45, 12, 29]
+
+plt.bar(categories, values)
+
+plt.title("Comparison of Categories")
+plt.xlabel("Categories")
+plt.ylabel("Values")
+
+plt.show()
+
+4. Generate a dataset with categories and numerical values. Visualize the distribution of a numerical
+variable across different categories.
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+np.random.seed(0)
+categories = ['Category A', 'Category B', 'Category C', 'Category D']
+values = [np.random.normal(loc, scale, 100) for loc, scale in zip(range(1, 5), range(1, 5))]
+
+plt.boxplot(values, labels=categories)
+
+plt.title("Distribution of Numerical Variable Across Categories")
+plt.xlabel("Categories")
+plt.ylabel("Values")
+
+plt.show()
+
+5. Generate a synthetic dataset with correlated features. Visualize the correlation matrix of a dataset using a
+heatmap.
+
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+np.random.seed(0)
+
+size = 100
+x = np.random.normal(0, 1, size)
+y = 2 * x + np.random.normal(0, 0.5, size)
+z = -x + np.random.normal(0, 0.5, size)
+
+data = np.vstack((x, y, z)).T
+
+corr_matrix = np.corrcoef(data, rowvar=False)
+
+sns.heatmap(corr_matrix, annot=True, fmt='.2f', cmap='coolwarm', xticklabels=['x', 'y', 'z'], yticklabels=['x', 'y', 'z'])
+plt.title("Correlation Matrix Heatmap")
+plt.show()
+
+PLOTLY ASSIGNMENT:
+
+1. Using the given dataset, to generate a 3D scatter plot to visualize the distribution of data points in a threedimensional space.
+np.random.seed(30) 
+data = { 
+    'X': np.random.uniform(-10, 10, 300), 
+    'Y': np.random.uniform(-10, 10, 300), 
+    'Z': np.random.uniform(-10, 10, 300) 
+} 
+df = pd.DataFrame(data)
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+np.random.seed(30)
+data = {
+    'X': np.random.uniform(-10, 10, 300),
+    'Y': np.random.uniform(-10, 10, 300),
+    'Z': np.random.uniform(-10, 10, 300)
+}
+df = pd.DataFrame(data)
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter(df['X'], df['Y'], df['Z'], c='b', marker='o')
+
+ax.set_title('3D Scatter Plot')
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+
+plt.show()
+
+2. Using the Student Grades, create a violin plot to display the distribution of scores across different grade
+categories.
+
+np.random.seed(15) 
+data = { 
+    'Grade': np.random.choice(['A', 'B', 'C', 'D', 'F'], 200), 
+    'Score': np.random.randint(50, 100, 200) 
+} 
+df = pd.DataFrame(data
+ Using the sales data, generate a heatmap to visualize the variation in sales across
+different months and days.
+
+np.random.seed(20) 
+data = { 
+    'Month': np.random.choice(['Jan', 'Feb', 'Mar', 'Apr', 'May'], 100), 
+    'Day': np.random.choice(range(1, 31), 100), 
+    'Sales': np.random.randint(1000, 5000, 100) 
+} 
+df = pd.DataFrame(data)
+
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+np.random.seed(15)
+
+data = {
+    'Grade': np.random.choice(['A', 'B', 'C', 'D', 'F'], 200),
+    'Score': np.random.randint(50, 100, 200)
+}
+
+df = pd.DataFrame(data)
+
+sns.violinplot(x='Grade', y='Score', data=df)
+
+plt.title('Distribution of Scores Across Grade Categories')
+plt.xlabel('Grade')
+plt.ylabel('Score')
+
+plt.show()
+
+3. Using the sales data, generate a heatmap to visualize the variation in sales across different months and
+days.
+np.random.seed(20) 
+data = { 
+    'Month': np.random.choice(['Jan', 'Feb', 'Mar', 'Apr', 'May'], 100), 
+    'Day': np.random.choice(range(1, 31), 100), 
+    'Sales': np.random.randint(1000, 5000, 100) 
+} 
+df = pd.DataFrame(data)
+
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+np.random.seed(20)
+
+data = {
+    'Month': np.random.choice(['Jan', 'Feb', 'Mar', 'Apr', 'May'], 100),
+    'Day': np.random.choice(range(1, 31), 100),
+    'Sales': np.random.randint(1000, 5000, 100)
+}
+
+df = pd.DataFrame(data)
+
+pivot_table = df.pivot_table(index='Day', columns='Month', values='Sales', aggfunc='mean')
+
+sns.heatmap(pivot_table, annot=True, fmt='.0f', cmap='YlGnBu')
+
+plt.title('Sales Variation Across Months and Days')
+
+plt.show()
+
+4. Using the given x and y data, generate a 3D surface plot to visualize the function 
+
+x = np.linspace(-5, 5, 100) 
+y = np.linspace(-5, 5, 100) 
+x, y = np.meshgrid(x, y) 
+z = np.sin(np.sqrt(x**2 + y**2))  
+data = { 
+    'X': x.flatten(), 
+    'Y': y.flatten(), 
+    'Z': z.flatten() 
+} 
+df = pd.DataFrame(data)
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+x = np.linspace(-5, 5, 100)
+y = np.linspace(-5, 5, 100)
+x, y = np.meshgrid(x, y)
+z = np.sin(np.sqrt(x**2 + y**2))
+
+data = {
+    'X': x.flatten(),
+    'Y': y.flatten(),
+    'Z': z.flatten()
+}
+df = pd.DataFrame(data)
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(x, y, z, cmap='viridis')
+
+ax.set_title('3D Surface Plot')
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+
+plt.show()
+
+5. Using the given dataset, create a bubble chart to represent each country's population (y-axis), GDP (xaxis), and bubble size proportional to the population.
+np.random.seed(25) 
+data = { 
+    'Country': ['USA', 'Canada', 'UK',
+'Germany', 'France'], 
+    'Population':
+np.random.randint(100, 1000, 5), 
+    'GDP': np.random.randint(500, 2000,
+5) 
+} 
+df = pd.DataFrame(data)
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+np.random.seed(25)
+
+data = {
+    'Country': ['USA', 'Canada', 'UK', 'Germany', 'France'],
+    'Population': np.random.randint(100, 1000, 5),
+    'GDP': np.random.randint(500, 2000, 5)
+}
+
+df = pd.DataFrame(data)
+
+plt.figure(figsize=(10, 6))
+plt.scatter(df['GDP'], df['Population'], s=df['Population']*10, alpha=0.5, c='b', edgecolors='w', linewidth=0.5)
+
+for i, txt in enumerate(df['Country']):
+    plt.annotate(txt, (df['GDP'][i], df['Population'][i]), fontsize=9, ha='right')
+plt.title('Country Population vs. GDP')
+plt.xlabel('GDP (Billion $)')
+plt.ylabel('Population (Millions)')
+
+plt.show()
+
+
+BOKEH ASSIGNMENT
+
+1.Create a Bokeh plot displaying a sine wave. Set x-values from 0 to 10 and y-values as the sine of x
+
+from bokeh.plotting import figure, show
+from bokeh.io import output_notebook
+import numpy as np
+
+output_notebook()
+
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+p = figure(title="Sine Wave", x_axis_label='x', y_axis_label='y')
+
+p.line(x, y, legend_label="sin(x)", line_width=2)
+
+show(p)
+
+2.Create a Bokeh scatter plot using randomly generated x and y values. Use different sizes and colors for the
+markers based on the 'sizes' and 'colors' columns.
+
+from bokeh.plotting import figure, show
+from bokeh.io import output_notebook
+import numpy as np
+import pandas as pd
+
+output_notebook()
+
+np.random.seed(42)
+x = np.random.random(100) * 10
+y = np.random.random(100) * 10
+sizes = np.random.random(100) * 30  # Marker sizes
+colors = np.random.choice(["blue", "green", "red", "purple", "orange"], 100)  # Marker colors
+
+data = pd.DataFrame({'x': x, 'y': y, 'sizes': sizes, 'colors': colors})
+
+p = figure(title="Random Scatter Plot", x_axis_label='x', y_axis_label='y')
+
+p.scatter('x', 'y', size='sizes', color='colors', source=data, legend_field='colors', fill_alpha=0.6)
+
+show(p)
+
+3. Generate a Bokeh bar chart representing the counts of different fruits using the following dataset.
+
+fruits = ['Apples', 'Oranges', 'Bananas', 'Pears'] 
+counts = [20, 25, 30, 35]
+
+from bokeh.plotting import figure, show
+from bokeh.io import output_notebook
+from bokeh.transform import factor_cmap
+from bokeh.models import ColumnDataSource
+
+output_notebook()
+
+fruits = ['Apples', 'Oranges', 'Bananas', 'Pears']
+counts = [20, 25, 30, 35]
+data = {'fruits': fruits, 'counts': counts}
+
+source = ColumnDataSource(data)
+
+p = figure(x_range=fruits, plot_height=350, title="Fruit Counts",
+           toolbar_location=None, tools="")
+
+p.vbar(x='fruits', top='counts', width=0.9, source=source,
+       line_color='white', fill_color=factor_cmap('fruits', palette=["#718dbf", "#e84d60", "#ddb7b1", "#c9d9d3"], factors=fruits))
+
+p.xgrid.grid_line_color = None
+p.y_range.start = 0
+p.xaxis.axis_label = "Fruits"
+p.yaxis.axis_label = "Counts"
+p.yaxis.major_label_orientation = "vertical"
+
+show(p)
+
+4. Create a Bokeh histogram to visualize the distribution of the given data.
+data_hist = np.random.randn(1000) 
+hist, edges = np.histogram(data_hist, bins=30)
+
+from bokeh.plotting import figure, show
+from bokeh.io import output_notebook
+import numpy as np
+
+output_notebook()
+
+data_hist = np.random.randn(1000)
+
+hist, edges = np.histogram(data_hist, bins=30)
+
+p = figure(title="Histogram of Data Distribution", x_axis_label='Value', y_axis_label='Frequency')
+
+p.quad(top=hist, bottom=0, left=edges[:-1], right=edges[1:], fill_color='navy', line_color='white', alpha=0.5)
+
+show(p)
+
+
+5. Create a Bokeh heatmap using the provided dataset.
+data_heatmap = np.random.rand(10, 10) 
+x = np.linspace(0, 1, 10) 
+y = np.linspace(0, 1, 10) 
+xx, yy = np.meshgrid(x, y)
+
+from bokeh.plotting import figure, show
+from bokeh.io import output_notebook
+from bokeh.models import LinearColorMapper, ColorBar
+from bokeh.transform import transform
+import numpy as np
+
+output_notebook()
+
+data_heatmap = np.random.rand(10, 10)
+x = np.linspace(0, 1, 10)
+y = np.linspace(0, 1, 10)
+xx, yy = np.meshgrid(x, y)
+
+x_flat = xx.flatten()
+y_flat = yy.flatten()
+z_flat = data_heatmap.flatten()
+
+color_mapper = LinearColorMapper(palette="Viridis256", low=min(z_flat), high=max(z_flat))
+
+p = figure(title="Heatmap", x_axis_label='X', y_axis_label='Y', tools='')
+
+p.rect(x_flat, y_flat, width=1/len(x), height=1/len(y), source=dict(x=x_flat, y=y_flat, z=z_flat),
+       fill_color=transform('z', color_mapper), line_color=None)
+
+color_bar = ColorBar(color_mapper=color_mapper, location=(0, 0))
+p.add_layout(color_bar, 'right')
+
+show(p)
+
